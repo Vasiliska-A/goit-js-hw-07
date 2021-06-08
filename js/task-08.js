@@ -36,19 +36,21 @@ const createBoxes = (amount) => {
   for (let i = 0; i < amount; i += 1) {
     const size = initialDiv + i * 10;
     const divItem = document.createElement("div");
-    divItem.style.cssText = `width:${size}px; height:${size}px; background-color:rgba (${random()},${random()},${random()} )`;
+    divItem.style.cssText = `width:${size}px; height:${size}px; background-color: rgba(${random()},${random()},${random()} )`;
     fragment.appendChild(divItem);
   }
   container.appendChild(fragment);
+  console.log(container);
 };
 
 const deleteBoxes = () => {
   container.innerHTML = "";
+  console.log(container);
 };
 
-const random = () => {
-  Math.floor(Math.random() * 256);
-};
+const random = () => Math.floor(Math.random() * 256);
+
+console.log(random());
 
 createBtn.addEventListener("click", getAmount);
 removeBtn.addEventListener("click", deleteBoxes);
