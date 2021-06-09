@@ -25,12 +25,16 @@
 // }
 
 const input = document.getElementById("validation-input");
+const expectedLength = Number(input.dataset.length);
+console.log(expectedLength);
 
 input.addEventListener("blur", (event) => {
   const inputValue = event.currentTarget.value;
-  if (inputValue.length === 6) {
+  if (inputValue.length === expectedLength) {
     event.currentTarget.classList.add("valid");
+    event.currentTarget.classList.remove("invalid");
   } else {
     event.currentTarget.classList.add("invalid");
+    event.currentTarget.classList.remove("valid");
   }
 });

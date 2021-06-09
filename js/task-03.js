@@ -22,25 +22,17 @@ const images = [
 ];
 
 const gallery = document.querySelector("#gallery");
+const itemList = document.querySelector("ul");
+itemList.classList.add("list");
 
-images.forEach((image) => {
-  gallery.insertAdjacentHTML(
-    "afterbegin",
-    `<li><img src=${image.url}, alt='${image.alt}'></li>`
-  );
-  const itemList = document.querySelector("ul");
-  console.log(itemList);
-  itemList.classList.add("list");
-  const imageEl = document.querySelector("img");
-  imageEl.classList.add("img");
-});
+const imgList = [];
 
-console.log(gallery);
+for (let i = 0; i < images.length; i += 1) {
+  const src = images[i].url;
+  const alt = images[i].alt;
+  const img = `<li class ="list-item"><img src="${src}" alt="${alt}" width = "640" height = "350"></li>`;
 
-// const listItem = document.querySelector("li");
-// const image = document.querySelector("img");
-// image.setAttribute("url");
-// image.setAttribute("alt");
+  imgList.push(img);
+}
 
-// console.log(listItem);
-// console.log(image);
+gallery.insertAdjacentHTML("afterbegin", imgList.join(""));
