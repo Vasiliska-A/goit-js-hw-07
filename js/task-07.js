@@ -12,10 +12,8 @@
 
 const inputRange = document.getElementById("font-size-control");
 const text = document.getElementById("text");
-text.style.fontSize = inputRange.value;
-console.log(inputRange.value);
 
-inputRange.addEventListener("change", (event) => {
+inputRange.addEventListener("input", (event) => {
   text.style.fontSize = event.currentTarget.value + "px";
+  console.log(text);
 });
-console.log();
